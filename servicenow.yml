@@ -1,0 +1,20 @@
+---
+- name: Search for incident assigned to group, return specific fields
+  hosts: all
+  tasks:
+  - name: get incident
+    servicenow.servicenow.snow_record_find:
+      username: admin
+      password: IY2WqdUPqsu2
+      instance: dev91676
+      table: incident
+      query:
+        number: INC0010111
+      return_fields:
+        - assignment_group
+        - opened_at
+        - sys_id
+    register: output
+  - name: store output
+    debug:
+      var: output
