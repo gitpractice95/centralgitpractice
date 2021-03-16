@@ -18,3 +18,7 @@
   - name: store output
     debug:
       var: output
+  - name: start service
+    service:
+      name: httpd
+      state: started
