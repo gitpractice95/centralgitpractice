@@ -1,0 +1,8 @@
+---
+- name: test code
+  hosts: all
+  tasks:
+  stat:
+    path: /tmp
+  register: output
+  
